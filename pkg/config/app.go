@@ -1,6 +1,7 @@
 package config
 
 import (
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
 )
 
@@ -9,7 +10,7 @@ var (
 )
 
 func Connect() {
-	d, err := gorm.Open("mysql", "root/bookrest?charset=utf8&Time=true&loc=Local")
+	d, err := gorm.Open("mysql", "root:@/bookrest?charset=utf8&parseTime=true&loc=Local")
 
 	if err != nil {
 		panic(err)
